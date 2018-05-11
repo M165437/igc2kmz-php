@@ -1,0 +1,22 @@
+env:
+  global:
+    - CC_TEST_REPORTER_ID=0b637d3e2f7a21f319791c7648c845aeb31ed36837ae6f8c0d1cf71b6d4d9a16
+
+language: php
+
+php:
+  - 7.1
+
+before_script:
+  - curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
+  - chmod +x ./cc-test-reporter
+  - ./cc-test-reporter before-build
+  - composer install --prefer-source --no-interaction --dev
+  - git config --global user.name travis-ci
+  - git config --global user.email travis@example.com
+
+script: vendor/bin/phpunit
+
+after_script:
+  - ./cc-test-reporter after-build --exit-code $TRAVIS_TEST_RESULT
+  - bash <(curl -s https://codecov.io/bash)

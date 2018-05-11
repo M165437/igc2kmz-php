@@ -50,8 +50,8 @@ class Igc2KmzTest extends TestCase
     protected function setUp()
     {
         $this->binPath     = __DIR__ . '/../vendor/bin/igc2kmz';
-        $this->fixturePath = __DIR__ . '/fixtures/';
-        $this->tmpPath     = sys_get_temp_dir();
+        $this->fixturePath = __DIR__ . '/fixtures';
+        $this->tmpPath     = rtrim(sys_get_temp_dir(), DIRECTORY_SEPARATOR);
         $this->igc2kmz     = new Igc2Kmz($this->binPath);
     }
 
@@ -60,8 +60,8 @@ class Igc2KmzTest extends TestCase
      */
     public function tearDown()
     {
-        if (file_exists($this->tmpPath . 'output.kmz')) {
-            unlink($this->tmpPath . 'output.kmz');
+        if (file_exists($this->tmpPath . '/output.kmz')) {
+            unlink($this->tmpPath . '/output.kmz');
         }
     }
 
@@ -92,14 +92,14 @@ class Igc2KmzTest extends TestCase
     {
         $this
             ->igc2kmz
-            ->igc($this->fixturePath . 'input.igc')
-            ->output($this->tmpPath . 'output.kmz')
+            ->igc($this->fixturePath . '/input.igc')
+            ->output($this->tmpPath . '/output.kmz')
             ->run();
 
-        $this->assertFileExists($this->tmpPath . 'output.kmz');
+        $this->assertFileExists($this->tmpPath . '/output.kmz');
         $this->assertXmlStringEqualsXmlString(
-            $this->getXmlFromKmz($this->fixturePath . 'reference.kmz'),
-            $this->getXmlFromKmz($this->tmpPath . 'output.kmz')
+            $this->getXmlFromKmz($this->fixturePath . '/reference.kmz'),
+            $this->getXmlFromKmz($this->tmpPath . '/output.kmz')
         );
 
         return $this->igc2kmz;
@@ -142,7 +142,7 @@ class Igc2KmzTest extends TestCase
     {
         $igc2kmz->run();
 
-        $this->assertFileExists($this->tmpPath . 'output.kmz');
+        $this->assertFileExists($this->tmpPath . '/output.kmz');
     }
 
     /**
@@ -153,8 +153,8 @@ class Igc2KmzTest extends TestCase
     {
         $process = $this
             ->igc2kmz
-            ->igc($this->fixturePath . 'input.igc')
-            ->output($this->tmpPath . 'output.kmz')
+            ->igc($this->fixturePath . '/input.igc')
+            ->output($this->tmpPath . '/output.kmz')
             ->build();
 
         $this->assertInstanceOf(Process::class, $process);
@@ -163,7 +163,7 @@ class Igc2KmzTest extends TestCase
             ->igc2kmz
             ->run($process);
 
-        $this->assertFileExists($this->tmpPath . 'output.kmz');
+        $this->assertFileExists($this->tmpPath . '/output.kmz');
     }
 
     /**
@@ -227,8 +227,8 @@ class Igc2KmzTest extends TestCase
     {
         $process = $this
             ->igc2kmz
-            ->igc($this->fixturePath . 'input.igc')
-            ->output($this->tmpPath . 'output.kmz')
+            ->igc($this->fixturePath . '/input.igc')
+            ->output($this->tmpPath . '/output.kmz')
             ->addPhoto('url/photo/1', 'my comment 1')
             ->addPhoto('url/photo/2')
             ->build();
@@ -236,8 +236,8 @@ class Igc2KmzTest extends TestCase
         $expectedCommandLine = sprintf(
             '%s --igc=%s --output=%s --photo=%s --description="%s" --photo=%s',
             $this->binPath,
-            $this->fixturePath . 'input.igc',
-            $this->tmpPath . 'output.kmz',
+            $this->fixturePath . '/input.igc',
+            $this->tmpPath . '/output.kmz',
             'url/photo/1',
             'my comment 1',
             'url/photo/2'

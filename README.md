@@ -1,5 +1,5 @@
 # igc2kmz PHP Wrapper
-PHP wrapper for Python software [igc2kmz](https://github.com/twpayne/igc2kmz), an IGC to Google Earth converter.
+PHP wrapper for Python script [igc2kmz](https://github.com/twpayne/igc2kmz), an IGC to Google Earth converter.
 
 [![GitHub release](https://img.shields.io/github/release/M165437/igc2kmz-php.svg)](https://github.com/M165437/igc2kmz-php/releases/latest)
 [![Unstable](https://img.shields.io/badge/unstable-master-orange.svg)](https://github.com/M165437/igc2kmz-php/tree/master)
@@ -9,7 +9,7 @@ PHP wrapper for Python software [igc2kmz](https://github.com/twpayne/igc2kmz), a
 [![Twitter](https://img.shields.io/badge/twitter-@M165437-blue.svg?style=flat&colorB=00aced)](http://twitter.com/M165437)
 
 ## What is igc2kmz-php?
-igc2kmz-php allows you to use Python software [igc2kmz](https://github.com/twpayne/igc2kmz), an IGC to Google Earth converter, with your PHP application.
+igc2kmz-php allows you to use Python script [igc2kmz](https://github.com/twpayne/igc2kmz), an IGC to Google Earth converter, with your PHP application.
 
 In a nutshell: you can convert IGC files to KMZ files.
 
@@ -18,13 +18,13 @@ In a nutshell: you can convert IGC files to KMZ files.
 [KML](https://en.wikipedia.org/wiki/Keyhole_Markup_Language) is an XML notation for expressing geographic annotation and visualization within Internet-based, two-dimensional maps and three-dimensional Earth browsers. KMZ files are zipped KML files consisting of a single root KML document and optionally any overlays, images and icons.
 
 ## Requirements
-* [igc2kmz](https://github.com/twpayne/igc2kmz) Python software
+* [igc2kmz](https://github.com/twpayne/igc2kmz) Python script
 * Python version 2.x, not version 3.0 (as required by igc2kmz)
 * PHP 7.1 or greater
 
 ## What's what
-* **igc2kmz** is a Python software to convert IGC files to KMZ files.
-* **igc2kmz-php** is a PHP wrapper around the igc2kmz Python software.
+* **igc2kmz** is a Python script to convert IGC files to KMZ files.
+* **igc2kmz-php** is a PHP wrapper around the igc2kmz Python script.
 
 ## Installation
 The recommended way to install igc2kmz-php is by using [composer](https://getcomposer.org):
@@ -34,20 +34,20 @@ $ composer require m165437/igc2kmz-php
 ```
 
 This will install the PHP package with your application.
-Please keep in mind that the Python software **igc2kmz is not included**.
+Please keep in mind that the Python script **igc2kmz is not included**.
 
-### Install the Python software igc2kmz using Composer
+### Install the Python script igc2kmz using Composer
 Head over to [m165437/igc2kmz-installer](https://github.com/m165437/igc2kmz-installer).
 
 ## Usage of igc2kmz-php
-1. Get an instance of the `\Igc2KmzPhp\Igc2KmzInterface` implementation, `\Igc2KmzPhp\Igc2Kmz`. Pass the path to the igc2kmz Python software to the constructor – ideally via dependency injection container.
+1. Get an instance of the `\Igc2KmzPhp\Igc2KmzInterface` implementation, `\Igc2KmzPhp\Igc2Kmz`. Pass the path to the igc2kmz binary to the constructor – ideally via dependency injection container.
 2. Set the igc file and options on your `\Igc2KmzPhp\Igc2Kmz` instance.
 3. Run your command.
 
 ### Code Examples
 
 ```php
-$igc2kmz = new Igc2Kmz('path/to/igc2kmz.py');
+$igc2kmz = new Igc2Kmz('vendor/bin/igc2kmz');
 ```
 
  > Keep in mind that igc2kmz-php is designed to keep its state,
