@@ -1,0 +1,42 @@
+{
+    "name": "m165437/igc2kmz-php",
+    "description": "PHP wrapper around igc2kmz",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Michael Schmidt-Voigt",
+            "email": "michael@schmidt-voigt.de"
+        }
+    ],
+    "minimum-stability": "stable",
+    "require": {
+        "php": "^7.1.3",
+        "symfony/process": "^4.0"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^7.0",
+        "m165437/igc2kmz-installer": "^1.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "M165437\\Igc2KmzPhp\\": "src"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "M165437\\Igc2KmzPhp\\Tests\\": "tests"
+        }
+    },
+    "scripts": {
+        "clean": "rm -rf vendor/ ext/ composer.lock",
+        "test": "vendor/bin/phpunit",
+        "quicktest": "vendor/bin/phpunit --no-coverage",
+        "install-igc2kmz": "M165437\\Igc2Kmz\\Installer::installIgc2Kmz",
+        "post-install-cmd": [
+            "@install-igc2kmz"
+        ],
+        "post-update-cmd": [
+            "@install-igc2kmz"
+        ]
+    }
+}
