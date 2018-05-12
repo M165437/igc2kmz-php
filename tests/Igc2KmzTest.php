@@ -265,6 +265,24 @@ class Igc2KmzTest extends TestCase
     }
 
     /**
+     * @test Resetting all photos on the instance.
+     */
+    public function reset_photos()
+    {
+        $this
+            ->igc2kmz
+            ->addPhoto('some-photo', 'some-comment');
+
+        $this->assertCount(1, $this->igc2kmz->getPhotos());
+
+        $this
+            ->igc2kmz
+            ->resetPhotos();
+
+        $this->assertCount(0, $this->igc2kmz->getPhotos());
+    }
+
+    /**
      * @test Catch an exception if the binary cannot be found.
      *
      * @expectedException \Exception
