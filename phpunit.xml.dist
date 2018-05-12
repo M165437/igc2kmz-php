@@ -9,7 +9,6 @@
          stopOnFailure="false"
          syntaxCheck="false"
          bootstrap="tests/bootstrap.php"
-         coverage-clover="build/logs/clover.xml"
 >
     <logging>
         <log type="coverage-html" target="./build/clover-html" charset="UTF-8" yui="true" highlight="true"
