@@ -3,8 +3,8 @@ PHP wrapper for Python script [igc2kmz](https://github.com/twpayne/igc2kmz), an 
 
 [![GitHub release](https://img.shields.io/github/release/M165437/igc2kmz-php.svg)](https://github.com/M165437/igc2kmz-php/releases/latest)
 [![Unstable](https://img.shields.io/badge/unstable-master-orange.svg)](https://github.com/M165437/igc2kmz-php/tree/master)
-[![Build Status](https://travis-ci.org/m165437/igc2kmz-php.svg?branch=master)](https://travis-ci.org/m165437/igc2kmz-php)
-[![codecov.io](http://codecov.io/github/m165437/igc2kmz-php/coverage.svg?branch=master)](http://codecov.io/github/m165437/igc2kmz-php?branch=master)
+[![Build Status](https://travis-ci.org/M165437/igc2kmz-php.svg?branch=master)](https://travis-ci.org/m165437/igc2kmz-php)
+[![codecov.io](http://codecov.io/github/M165437/igc2kmz-php/coverage.svg?branch=master)](http://codecov.io/github/m165437/igc2kmz-php?branch=master)
 [![License](https://img.shields.io/badge/license-MIT-green.svg?style=flat&colorB=458979)](https://github.com/M165437/igc2kmz-php/blob/master/LICENSE.md)
 [![Twitter](https://img.shields.io/badge/twitter-@M165437-blue.svg?style=flat&colorB=00aced)](http://twitter.com/M165437)
 
