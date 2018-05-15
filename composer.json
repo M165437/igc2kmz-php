@@ -1,6 +1,14 @@
 {
     "name": "m165437/igc2kmz-php",
-    "description": "PHP wrapper around igc2kmz",
+    "description": "PHP wrapper for Python script igc2kmz, an IGC to Google Earth converter. ",
+    "keywords": [
+        "paragliding",
+        "Google Earth",
+        "igc",
+        "kmz",
+        "kml",
+        "laravel"
+    ],
     "license": "MIT",
     "authors": [
         {
